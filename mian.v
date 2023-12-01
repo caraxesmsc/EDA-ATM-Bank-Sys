@@ -22,8 +22,6 @@ anotherServiceState=4'b0101,
 balanceState=4'b0110, //balance
 )
 
-//********************//
-
 
 reg [3:0] state, nextState;
 reg [4:0] bal;
@@ -93,7 +91,9 @@ begin
 
         serviceState:
             begin
-            // timerCounter=0;
+            timerCounter=0;
+            if(service!=3'b000)
+            begin
                 case(service)
 
                     3'b000: nextState=state;
@@ -104,25 +104,53 @@ begin
                 endcase
                 
             end
+            else
+            begin
+                timerCounter=timerCounter+1;
+                if(timerCounter<5)
+                    nextState=state;
+                else
+                    begin
+                        $monitor("No Action taken");
+                        #1 nextState=idleState;
+                    end
+            end
+            end
             
         depositState:
             begin
-                if(amount<=0)
-                    begin
-                        $monitor("Can't Deposit Negative Amount");
-                        nextState=idleState;
-                    end
+                if(amount!=5'b0)
+                begin
+                    if(amount<=0)
+                        begin
+                            $monitor("Can't Deposit Negative Amount");
+                            nextState=idleState;
+                        end
+                    else
+                        begin
+                            $monitor("%d Amount Deposited into your Account",amount);
+                            balance=balance+amount;
+                            nextState=anotherServiceState;
+                        end
+                end
                 else
-                    begin
-                        $monitor("%d Amount Deposited into your Account",amount);
-                        balance=balance+amount;
-                        nextState=anotherServiceState;
-                    end
-
+                begin
+                    timerCounter=timerCounter+1;
+                    if(timerCounter<5)
+                        nextState=state;
+                    else
+                        begin
+                            $monitor("No Action taken");
+                            #1 nextState=idleState;
+                        end
+                end
             end
 
         withdrawState:
             begin
+                if(amount!=5'b0)
+                begin
+
                 if(amount>=balance)
                     begin
                         nextState=idleState;
@@ -132,6 +160,18 @@ begin
                         balance=balance-amount;
                         nextState=anotherServiceState;
                     end
+                end
+                else
+                begin
+                        timerCounter=timerCounter+1;
+                        if(timerCounter<5)
+                            nextState=state;
+                        else
+                            begin
+                                $monitor("No Action taken");
+                                #1 nextState=idleState;
+                            end
+                end
             end
 
         balanceState:
@@ -150,5 +190,4 @@ begin
                     nextState=endState;
             end
     endcase
-    
 end
