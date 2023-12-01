@@ -22,7 +22,17 @@ anotherServiceState=4'b0101,
 balanceState=4'b0110, //balance
 )
 
+//********************//
 
+initial begin
+    language=2b'00;
+    service=3b'000;
+    amount=5'b00000;
+    cardno=8'b00000000;
+    pin=4'b0000;
+    anotherServiceBit=0;
+
+end
 reg [3:0] state, nextState;
 reg [4:0] bal;
 
@@ -65,6 +75,12 @@ begin
                             begin
                                 $monitor("No Action taken");
                                 #1 nextState=idleState;
+                                language=2b'00;
+                                service=3b'000;
+                                amount=5'b00000;
+                                cardno=8'b00000000;
+                                pin=4'b0000;
+                                anotherServiceBit=0;
                             end
                     end
             end
@@ -85,6 +101,12 @@ begin
                             begin
                                 $monitor("No Action taken");
                                 #1 nextState=idleState;
+                                language=2b'00;
+                                service=3b'000;
+                                amount=5'b00000;
+                                cardno=8'b00000000;
+                                pin=4'b0000;
+                                anotherServiceBit=0;
                             end
                     end
             end
@@ -113,6 +135,12 @@ begin
                     begin
                         $monitor("No Action taken");
                         #1 nextState=idleState;
+                                language=2b'00;
+                                service=3b'000;
+                                amount=5'b00000;
+                                cardno=8'b00000000;
+                                pin=4'b0000;
+                                anotherServiceBit=0;
                     end
             end
             end
@@ -142,6 +170,12 @@ begin
                         begin
                             $monitor("No Action taken");
                             #1 nextState=idleState;
+                                                            language=2b'00;
+                                service=3b'000;
+                                amount=5'b00000;
+                                cardno=8'b00000000;
+                                pin=4'b0000;
+                                anotherServiceBit=0;
                         end
                 end
             end
@@ -170,6 +204,12 @@ begin
                             begin
                                 $monitor("No Action taken");
                                 #1 nextState=idleState;
+                                                                language=2b'00;
+                                service=3b'000;
+                                amount=5'b00000;
+                                cardno=8'b00000000;
+                                pin=4'b0000;
+                                anotherServiceBit=0;
                             end
                 end
             end
