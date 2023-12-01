@@ -19,7 +19,7 @@ depositState=4'b0100, //deposit
 withdrawState=4'b1000, //withdraw
 serviceState=4'b0011, //choose a service
 anotherServiceState=4'b0101,
-balanceState=4'b0110; //balance
+balanceState=4'b0110 //balance
 )
 
 //********************//
@@ -162,7 +162,7 @@ begin
                     else
                         begin
                             nextState=idleState;
-                                language=2b'00;
+                                                            language=2b'00;
                                 service=3b'000;
                                 amount=5'b00000;
                                 cardno=8'b00000000;
@@ -194,7 +194,7 @@ begin
                             nextState=state;
                         else
                             begin
-                                nextState=idleState;
+                                 nextState=idleState;
                                 language=2b'00;
                                 service=3b'000;
                                 amount=5'b00000;
