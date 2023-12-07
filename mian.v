@@ -1,13 +1,14 @@
 module ATMmodule(
     input clk,
-    input [3:0] pin, correctPin,
-    input [7:0] cardno,
-    input [1:0] language, // 00 is default ---- 01 is English ----- 10 is German
-    input [2:0] service, // 000 is default ---- 001 deposit ---- 010 withdraw ---- 011 checkBalance ---- 100 101 111
-    input [4:0] amount, // money to deposit or withdraw
-    input anotherServiceBit, // 0 is default means no another service if changed to 1 then go back to serviceSate
+    input [3:0]  correctPin,
     output reg [4:0] balance // money in your bank acc.
 );
+reg [1:0] language;// 00 is default ---- 01 is English ----- 10 is German
+reg [2:0] service;// 000 is default ---- 001 deposit ---- 010 withdraw ---- 011 checkBalance ---- 100 101 111
+reg [4:0] amount;// money to deposit or withdraw
+reg [7:0] cardno;
+reg [3:0] pin;
+reg anotherServiceBit;// 0 is default means no another service if changed to 1 then go back to serviceSate
     reg [31:0] timerCounter;
 
     // States definition
