@@ -186,7 +186,6 @@ module ATMmodule(
                 begin
                     balance = currentbalanceReg;
                     // Display balance and transition to anotherServiceState
-
                     nextState = anotherServiceState;
                 end
 
