@@ -1,0 +1,784 @@
+Coverage Report by file with details
+
+=================================================================================
+=== File: ATMmodule.v
+=================================================================================
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                        36        36         0   100.00%
+
+================================Branch Details================================
+
+Branch Coverage for file ATMmodule.v --
+
+------------------------------------IF Branch------------------------------------
+    66                                     67969     Count coming in to IF
+    66              1                      27002             if(nextState != state)
+    68              1                      40967             else
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    70                                     40967     Count coming in to IF
+    70              1                       4923                 if(timerCounter==4'b1110)
+    72              1                      36044                 else
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    76                                     67969     Count coming in to IF
+    76              1                       4923             if(longTime) begin
+                                           63046     All False Count
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------CASE Branch------------------------------------
+    94                                     32450     Count coming in to CASE
+    95              1                       9473                 idleState:  
+    109             1                       6518                 languageState: 
+    126             1                       5562                 pinState:
+    139             1                       6314                 serviceState:
+    153             1                        756                 depositState:
+    174             1                        793                 withdrawState:
+    194             1                        797                 balanceState:
+    202             1                       2236                 anotherServiceState:
+    218             1                          1                 default: nextState = idleState;
+Branch totals: 9 hits of 9 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    98                                      9473     Count coming in to IF
+    98              1                       7011                         if(cardno_reg != 8'b00000000) 
+    103             1                       2462                         else 
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    112                                     6518     Count coming in to IF
+    112             1                       2737                         if(language_reg == 2'b01)
+    116             1                       2825                         else if (language_reg == 2'b10)
+    120             1                        956                         else
+Branch totals: 3 hits of 3 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    129                                     5562     Count coming in to IF
+    129             1                       5561                         if(pin_reg == correctPin) 
+    133             1                          1                         else
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------CASE Branch------------------------------------
+    141                                     6314     Count coming in to CASE
+    143             1                        756                             2'b01: nextState = depositState;
+    144             1                        793                             2'b10: nextState = withdrawState;
+    145             1                        797                             2'b11: nextState = balanceState;
+    146             1                       3968                             default: nextState = idleState;
+Branch totals: 4 hits of 4 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    157                                      756     Count coming in to IF
+    157             1                        739                         if(amount_reg)
+    168             1                         17                         else
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    159                                      739     Count coming in to IF
+    159             1                         24                                 if(temp < currentbalanceReg) begin 
+    162             1                        715                                 else begin 
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    176                                      793     Count coming in to IF
+    176             1                        773                         if(amount_reg)
+    188             1                         20                         else
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    178                                      773     Count coming in to IF
+    178             1                         54                                 if(amount_reg > balance) // If withdraw amount exceeds balance, transition to idleState
+    180             1                        719                                 else
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    205                                     2236     Count coming in to IF
+    205             1                        753                         if(anotherServiceBit_reg) 
+    212             1                       1483                         else 
+Branch totals: 2 hits of 2 branches = 100.00%
+
+
+Condition Coverage:
+    Enabled Coverage              Bins   Covered    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Conditions                       8         8         0   100.00%
+
+================================Condition Details================================
+
+Condition Coverage for file ATMmodule.v --
+
+----------------Focused Condition View-------------------
+Line       66 Item    1  (nextState != state)
+Condition totals: 1 of 1 input term covered = 100.00%
+
+            Input Term   Covered  Reason for no coverage   Hint
+           -----------  --------  -----------------------  --------------
+  (nextState != state)         Y
+
+     Rows:       Hits  FEC Target              Non-masking condition(s)      
+ ---------  ---------  --------------------    -------------------------     
+  Row   1:          1  (nextState != state)_0  -                             
+  Row   2:          1  (nextState != state)_1  -                             
+
+----------------Focused Condition View-------------------
+Line       70 Item    1  (timerCounter == 14)
+Condition totals: 1 of 1 input term covered = 100.00%
+
+            Input Term   Covered  Reason for no coverage   Hint
+           -----------  --------  -----------------------  --------------
+  (timerCounter == 14)         Y
+
+     Rows:       Hits  FEC Target              Non-masking condition(s)      
+ ---------  ---------  --------------------    -------------------------     
+  Row   1:          1  (timerCounter == 14)_0  -                             
+  Row   2:          1  (timerCounter == 14)_1  -                             
+
+----------------Focused Condition View-------------------
+Line       98 Item    1  (cardno_reg != 0)
+Condition totals: 1 of 1 input term covered = 100.00%
+
+         Input Term   Covered  Reason for no coverage   Hint
+        -----------  --------  -----------------------  --------------
+  (cardno_reg != 0)         Y
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          1  (cardno_reg != 0)_0   -                             
+  Row   2:          1  (cardno_reg != 0)_1   -                             
+
+----------------Focused Condition View-------------------
+Line       112 Item    1  (language_reg == 1)
+Condition totals: 1 of 1 input term covered = 100.00%
+
+           Input Term   Covered  Reason for no coverage   Hint
+          -----------  --------  -----------------------  --------------
+  (language_reg == 1)         Y
+
+     Rows:       Hits  FEC Target             Non-masking condition(s)      
+ ---------  ---------  --------------------   -------------------------     
+  Row   1:          1  (language_reg == 1)_0  -                             
+  Row   2:          1  (language_reg == 1)_1  -                             
+
+----------------Focused Condition View-------------------
+Line       116 Item    1  (language_reg == 2)
+Condition totals: 1 of 1 input term covered = 100.00%
+
+           Input Term   Covered  Reason for no coverage   Hint
+          -----------  --------  -----------------------  --------------
+  (language_reg == 2)         Y
+
+     Rows:       Hits  FEC Target             Non-masking condition(s)      
+ ---------  ---------  --------------------   -------------------------     
+  Row   1:          1  (language_reg == 2)_0  -                             
+  Row   2:          1  (language_reg == 2)_1  -                             
+
+----------------Focused Condition View-------------------
+Line       129 Item    1  (pin_reg == correctPin)
+Condition totals: 1 of 1 input term covered = 100.00%
+
+               Input Term   Covered  Reason for no coverage   Hint
+              -----------  --------  -----------------------  --------------
+  (pin_reg == correctPin)         Y
+
+     Rows:       Hits  FEC Target                 Non-masking condition(s)      
+ ---------  ---------  --------------------       -------------------------     
+  Row   1:          1  (pin_reg == correctPin)_0  -                             
+  Row   2:          1  (pin_reg == correctPin)_1  -                             
+
+----------------Focused Condition View-------------------
+Line       159 Item    1  (temp < currentbalanceReg)
+Condition totals: 1 of 1 input term covered = 100.00%
+
+                  Input Term   Covered  Reason for no coverage   Hint
+                 -----------  --------  -----------------------  --------------
+  (temp < currentbalanceReg)         Y
+
+     Rows:       Hits  FEC Target                    Non-masking condition(s)      
+ ---------  ---------  --------------------          -------------------------     
+  Row   1:          1  (temp < currentbalanceReg)_0  -                             
+  Row   2:          1  (temp < currentbalanceReg)_1  -                             
+
+----------------Focused Condition View-------------------
+Line       178 Item    1  (amount_reg > balance)
+Condition totals: 1 of 1 input term covered = 100.00%
+
+              Input Term   Covered  Reason for no coverage   Hint
+             -----------  --------  -----------------------  --------------
+  (amount_reg > balance)         Y
+
+     Rows:       Hits  FEC Target                Non-masking condition(s)      
+ ---------  ---------  --------------------      -------------------------     
+  Row   1:          1  (amount_reg > balance)_0  -                             
+  Row   2:          1  (amount_reg > balance)_1  -                             
+
+
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                      57        57         0   100.00%
+
+================================Statement Details================================
+
+Statement Coverage for file ATMmodule.v --
+
+    1                                                module ATMmodule(
+    2                                                    input  [1:0] language,// 00 is default ---- 01 is English ----- 10 is German
+    3                                                    input  [1:0] service,// 000 is default ---- 001 deposit ---- 010 withdraw ---- 011 checkBalance ---- 100 101 111
+    4                                                    input  [4:0] amount,// money to deposit or withdraw
+    5                                                    input  [7:0] cardno,
+    6                                                    input  [3:0] pin,
+    7                                                    input  anotherServiceBit,// 0 is default means no another service if changed to 1 then go back to serviceSate
+    8                                                    input clk,
+    9                                                    input [3:0]  correctPin,
+    10                                                   input [7:0] currentbalance,
+    11                                                   output reg amIhere,
+    12                                                   output reg [7:0] balance, // money in your bank acc.
+    13                                                   output reg longTime
+    14                                               );
+    15                                               
+    16                                                   reg [3:0] timerCounter;
+    17                                                   // States definition
+    18                                                   localparam [3:0]
+    19                                                       idleState = 4'b0000,
+    20                                                       languageState = 4'b0001, // input language 
+    21                                                       pinState = 4'b0010,      // input password
+    22                                                       depositState = 4'b0100,  // deposit
+    23                                                       withdrawState = 4'b1000, // withdraw
+    24                                                       serviceState = 4'b0011,  // choose a service
+    25                                                       anotherServiceState = 4'b0101,
+    26                                                       balanceState = 4'b0110;  // balance
+    27                                               
+    28                                                   // State and nextState registers
+    29                                                   reg [3:0] state, nextState;
+    30                                                   reg [7:0] currentbalanceReg;
+    31                                                   reg [1:0] language_reg;
+    32                                                   reg [1:0] service_reg;
+    33                                                   reg [4:0] amount_reg;
+    34                                                   reg [7:0] cardno_reg;
+    35                                                   reg [3:0] pin_reg;
+    36                                                   reg anotherServiceBit_reg;
+    37                                               
+    38                                                   // initial begin
+    39                                                   //     #1
+    40                                                   //     longTime = 1'b1;
+    41                                                   //     // balance = 5'b11011;
+    42                                                   // end
+    43                                               
+    44                                               
+    45              1                       2980         always @(currentbalance or service or amount) begin
+    46                                                       // Assign input values to reg variables
+    47              1                       2980             state = idleState;
+    48              1                       2980             nextState = state;
+    49              1                       2980             anotherServiceBit_reg = anotherServiceBit;
+    50              1                       2980             currentbalanceReg = currentbalance;
+    51              1                       2980             language_reg = language;
+    52              1                       2980             service_reg = service;
+    53              1                       2980             amount_reg = amount;
+    54              1                       2980             cardno_reg = cardno;
+    55              1                       2980             pin_reg = pin;
+    56              1                       2980             balance = currentbalance;
+    57              1                       2980             timerCounter = 4'b0;
+    58              1                       2980             longTime = 1'b0;
+    59                                                       // balance = 5'b11011;
+    60                                                   end
+    61                                               
+    62              1                      67969         always @(posedge clk) 
+    63                                                   begin
+    64                                                       // Sequential logic: State transition on positive edge of the clock
+    65                                               
+    66                                                       if(nextState != state)
+    67              1                      27002                 timerCounter = 0;
+    68                                                       else
+    69                                                       begin
+    70                                                           if(timerCounter==4'b1110)
+    71              1                       4923                     longTime= 1'b1;
+    72                                                           else
+    73              1                      36044                     timerCounter = timerCounter+1;
+    74                                                       end
+    75                                               
+    76                                                       if(longTime) begin
+    77                                                           //idle state
+    78              1                       4923                 nextState=idleState;
+    79                                                           //reset values
+    80              1                       4923                 language_reg = 2'b00;
+    81              1                       4923                 service_reg = 2'b00;
+    82              1                       4923                 amount_reg = 5'b00000;
+    83              1                       4923                 cardno_reg = 8'b00000000;
+    84              1                       4923                 pin_reg = 4'b0000;
+    85              1                       4923                 anotherServiceBit_reg = 0;
+    86                                                       end
+    87              1                      67969             state = nextState;
+    88                                                   end
+    89                                               
+    90                                                   // assign anotherServiceBit = anotherServiceBit_reg == 0 ? 0 : 1;
+    91              1                      32450         always @(*) begin: alwaysBlock
+    92                                                       reg [7:0] temp; // for use in deposit
+    93              1                      32450             amIhere = 0;
+    94                                                       case(state)
+    95                                                           idleState:  
+    96                                                               begin
+    97                                                                   // Transition to languageState if card number is present
+    98                                                                   if(cardno_reg != 8'b00000000) 
+    99                                                                       begin
+    100             1                       7011                                 nextState = languageState;
+    101                                                                                     
+    102                                                                      end
+    103                                                                  else 
+    104                                                                      begin
+    105             1                       2462                                 nextState = state;
+    106                                                                      end
+    107                                                              end
+    108                                                          //? The Language State of the System
+    109                                                          languageState: 
+    110                                                              begin
+    111                                                                  // Check selected language
+    112                                                                  if(language_reg == 2'b01)
+    113                                                                      begin
+    114             1                       2737                                 nextState = pinState;
+    115                                                                      end
+    116                                                                  else if (language_reg == 2'b10)
+    117                                                                      begin
+    118             1                       2825                                 nextState = pinState;
+    119                                                                      end
+    120                                                                  else
+    121                                                                      begin
+    122             1                        956                                 nextState = state;
+    123                                                                      end
+    124                                                              end
+    125                                                          //? The Pin State of the System
+    126                                                          pinState:
+    127                                                              begin
+    128                                                                  // Check if the entered PIN is correct
+    129                                                                  if(pin_reg == correctPin) 
+    130                                                                      begin
+    131             1                       5561                                 nextState = serviceState;
+    132                                                                      end
+    133                                                                  else
+    134                                                                      begin
+    135             1                          1                                 nextState = state;
+    136                                                                      end
+    137                                                              end
+    138                                                          //? The Service State of the System
+    139                                                          serviceState:
+    140                                                              begin
+    141                                                                  case(service_reg)
+    142                                                                      // 3'b000: nextState = state;  
+    143             1                        756                             2'b01: nextState = depositState;
+    144             1                        793                             2'b10: nextState = withdrawState;
+    145             1                        797                             2'b11: nextState = balanceState;
+    146             1                       3968                             default: nextState = idleState;
+    147                                                                      // Add cases for 3'b100, 3'b101, and 3'b111 if needed
+    148                                                                  endcase
+    149                                              
+    150                                                              end
+    151                                              
+    152                                                          //! The Deposit State of the System
+    153                                                          depositState:
+    154                                                              begin // Check if the deposit amount is valid
+    155             1                        756                     #5 amIhere = 1;
+    155             2                        756     
+    156             1                        756                     temp = amount_reg + currentbalanceReg;
+    157                                                                  if(amount_reg)
+    158                                                                      begin
+    159                                                                          if(temp < currentbalanceReg) begin 
+    160             1                         24                                     nextState = idleState;
+    161                                                                          end
+    162                                                                          else begin 
+    163             1                        715                                     balance = currentbalanceReg + amount_reg;
+    164             1                        715                                     nextState = anotherServiceState;
+    165             1                        715                                     currentbalanceReg = balance;
+    166                                                                          end
+    167                                                                      end
+    168                                                                  else
+    169                                                                      begin
+    170             1                         17                                 nextState = state;
+    171                                                                      end
+    172                                                              end
+    173                                                          //! The Withdraw State of the System
+    174                                                          withdrawState:
+    175                                                              begin // Check if the withdraw amount is valid
+    176                                                                  if(amount_reg)
+    177                                                                      begin
+    178                                                                          if(amount_reg > balance) // If withdraw amount exceeds balance, transition to idleState
+    179             1                         54                                     nextState = idleState;
+    180                                                                          else
+    181                                                                              begin
+    182                                                                                  // Update balance and transition to anotherServiceState
+    183             1                        719                                         balance = currentbalanceReg - amount_reg;
+    184             1                        719                                         nextState = anotherServiceState;
+    185             1                        719                                         currentbalanceReg = balance;
+    186                                                                              end
+    187                                                                      end
+    188                                                                  else
+    189                                                                  begin
+    190             1                         20                             nextState = state;
+    191                                                                  end
+    192                                                              end
+    193                                              
+    194                                                          balanceState:
+    195                                                              begin
+    196             1                        797                         balance = currentbalanceReg;
+    197                                                                  // Display balance and transition to anotherServiceState
+    198                                              
+    199             1                        797                         nextState = anotherServiceState;
+    200                                                              end
+    201                                              
+    202                                                          anotherServiceState:
+    203                                                              begin
+    204                                                                  // Transition to serviceState if anotherServiceBit is set, else idleState
+    205                                                                  if(anotherServiceBit_reg) 
+    206                                                                      begin
+    207                                                                          
+    208                                              
+    209             1                        753                                 nextState = serviceState;
+    210             1                        753                                 anotherServiceBit_reg = 0;
+    211                                                                      end
+    212                                                                  else 
+    213                                                                      begin
+    214             1                       1483                                 nextState = state;
+    215                                                                      end
+    216                                                              end
+    217                                              
+    218             1                          1                 default: nextState = idleState;
+    219                                                      endcase
+    220                                                  end
+    221                                                  
+    222                                              endmodule
+    223                                              
+
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                        174       174         0   100.00%
+
+================================Toggle Details================================
+
+Toggle Coverage for File ATMmodule.v --
+
+       Line                                   Node      1H->0L      0L->1H  "Coverage"
+--------------------------------------------------------------------------------------
+          2                            language[1]           1           1      100.00 
+          2                            language[0]           1           1      100.00 
+          3                             service[1]           1           1      100.00 
+          3                             service[0]           1           1      100.00 
+          4                              amount[4]           1           1      100.00 
+          4                              amount[3]           1           1      100.00 
+          4                              amount[2]           1           1      100.00 
+          4                              amount[1]           1           1      100.00 
+          4                              amount[0]           1           1      100.00 
+          5                              cardno[7]           1           1      100.00 
+          5                              cardno[6]           1           1      100.00 
+          5                              cardno[5]           1           1      100.00 
+          5                              cardno[4]           1           1      100.00 
+          5                              cardno[3]           1           1      100.00 
+          5                              cardno[2]           1           1      100.00 
+          5                              cardno[1]           1           1      100.00 
+          5                              cardno[0]           1           1      100.00 
+          6                                 pin[3]           1           1      100.00 
+          6                                 pin[2]           1           1      100.00 
+          6                                 pin[1]           1           1      100.00 
+          6                                 pin[0]           1           1      100.00 
+          7                      anotherServiceBit           1           1      100.00 
+          8                                    clk           1           1      100.00 
+          9                          correctPin[3]           1           1      100.00 
+          9                          correctPin[2]           1           1      100.00 
+          9                          correctPin[1]           1           1      100.00 
+          9                          correctPin[0]           1           1      100.00 
+         10                      currentbalance[7]           1           1      100.00 
+         10                      currentbalance[6]           1           1      100.00 
+         10                      currentbalance[5]           1           1      100.00 
+         10                      currentbalance[4]           1           1      100.00 
+         10                      currentbalance[3]           1           1      100.00 
+         10                      currentbalance[2]           1           1      100.00 
+         10                      currentbalance[1]           1           1      100.00 
+         10                      currentbalance[0]           1           1      100.00 
+         11                                amIhere           1           1      100.00 
+         12                             balance[7]           1           1      100.00 
+         12                             balance[6]           1           1      100.00 
+         12                             balance[5]           1           1      100.00 
+         12                             balance[4]           1           1      100.00 
+         12                             balance[3]           1           1      100.00 
+         12                             balance[2]           1           1      100.00 
+         12                             balance[1]           1           1      100.00 
+         12                             balance[0]           1           1      100.00 
+         13                               longTime           1           1      100.00 
+         16                        timerCounter[3]           1           1      100.00 
+         16                        timerCounter[2]           1           1      100.00 
+         16                        timerCounter[1]           1           1      100.00 
+         16                        timerCounter[0]           1           1      100.00 
+         29                               state[3]           1           1      100.00 
+         29                               state[2]           1           1      100.00 
+         29                               state[1]           1           1      100.00 
+         29                               state[0]           1           1      100.00 
+         29                           nextState[3]           1           1      100.00 
+         29                           nextState[2]           1           1      100.00 
+         29                           nextState[1]           1           1      100.00 
+         29                           nextState[0]           1           1      100.00 
+         30                   currentbalanceReg[7]           1           1      100.00 
+         30                   currentbalanceReg[6]           1           1      100.00 
+         30                   currentbalanceReg[5]           1           1      100.00 
+         30                   currentbalanceReg[4]           1           1      100.00 
+         30                   currentbalanceReg[3]           1           1      100.00 
+         30                   currentbalanceReg[2]           1           1      100.00 
+         30                   currentbalanceReg[1]           1           1      100.00 
+         30                   currentbalanceReg[0]           1           1      100.00 
+         31                        language_reg[1]           1           1      100.00 
+         31                        language_reg[0]           1           1      100.00 
+         32                         service_reg[1]           1           1      100.00 
+         32                         service_reg[0]           1           1      100.00 
+         33                          amount_reg[4]           1           1      100.00 
+         33                          amount_reg[3]           1           1      100.00 
+         33                          amount_reg[2]           1           1      100.00 
+         33                          amount_reg[1]           1           1      100.00 
+         33                          amount_reg[0]           1           1      100.00 
+         34                          cardno_reg[7]           1           1      100.00 
+         34                          cardno_reg[6]           1           1      100.00 
+         34                          cardno_reg[5]           1           1      100.00 
+         34                          cardno_reg[4]           1           1      100.00 
+         34                          cardno_reg[3]           1           1      100.00 
+         34                          cardno_reg[2]           1           1      100.00 
+         34                          cardno_reg[1]           1           1      100.00 
+         34                          cardno_reg[0]           1           1      100.00 
+         35                             pin_reg[3]           1           1      100.00 
+         35                             pin_reg[2]           1           1      100.00 
+         35                             pin_reg[1]           1           1      100.00 
+         35                             pin_reg[0]           1           1      100.00 
+         36                  anotherServiceBit_reg           1           1      100.00 
+
+Total Node Count     =         87 
+Toggled Node Count   =         87 
+Untoggled Node Count =          0 
+
+Toggle Coverage      =     100.00% (174 of 174 bins)
+
+=================================================================================
+=== File: ATMmoduleTB.v
+=================================================================================
+Branch Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Branches                         2         2         0   100.00%
+
+================================Branch Details================================
+
+Branch Coverage for file ATMmoduleTB.v --
+
+------------------------------------IF Branch------------------------------------
+    54                                      3000     Count coming in to IF
+    54              1                        748                   if(service == 2'b01) begin
+    57              1                       2252                   else begin
+Branch totals: 2 hits of 2 branches = 100.00%
+
+
+Condition Coverage:
+    Enabled Coverage              Bins   Covered    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Conditions                       1         1         0   100.00%
+
+================================Condition Details================================
+
+Condition Coverage for file ATMmoduleTB.v --
+
+----------------Focused Condition View-------------------
+Line       54 Item    1  (service == 1)
+Condition totals: 1 of 1 input term covered = 100.00%
+
+      Input Term   Covered  Reason for no coverage   Hint
+     -----------  --------  -----------------------  --------------
+  (service == 1)         Y
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:          1  (service == 1)_0      -                             
+  Row   2:          1  (service == 1)_1      -                             
+
+
+Statement Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Statements                      32        32         0   100.00%
+
+================================Statement Details================================
+
+Statement Coverage for file ATMmoduleTB.v --
+
+    1                                                module ATMmoduleTB;
+    2                                                    reg clk;
+    3                                                    reg [3:0] pin, correctPin;
+    4                                                    reg [7:0] cardno;
+    5                                                    reg [1:0] language; 
+    6                                                    reg [1:0] service; 
+    7                                                    reg [4:0] amount;
+    8                                                    reg anotherServiceBit;
+    9                                                    reg [7:0] currentbalance;
+    10                                                   wire amIhere;
+    11                                                   wire [7:0] balance;
+    12                                                   wire longTime;
+    13                                               
+    14                                                   
+    15                                               
+    16                                                   //clock generation
+    17                                                   initial begin
+    18              1                          1             clk = 0;
+    19              1                          1             forever  
+    20              1                     192132             #1 clk = ~clk;
+    20              2                     192131     
+    21                                                   end
+    22                                               
+    23                                                   
+    24                                               
+    25                                                   initial begin: One
+    26                                               
+    27                                                     reg [10:0] i;
+    28                                                     integer file;
+    29                                                     integer file1;
+    30                                                     // currentbalance = 7'b0000;
+    31                                                     // language = 2'b00;
+    32                                                     // amount = 5'b00000;
+    33                                                     // service = 3'b001;
+    34                                                     // anotherServiceBit = 1'b0;
+    35                                                     // cardno = 8'b11011011;
+    36                                                     // pin = 4'b1101;
+    37                                                     // correctPin = 4'b1101;
+    38                                                    
+    39              1                          1           file= $fopen("Accounts.txt","r");
+    40                                               
+    41              1                          7           while(!$feof(file)) begin
+    42              1                          6             $fscanf(file,"%b", cardno);
+    43              1                          6             $fscanf(file,"%b", correctPin);
+    44              1                          6             $fscanf(file,"%b", currentbalance);
+    45                                                       
+    46              1                          6             pin = correctPin;
+    47                                               
+    48              1                          6             for (i = 0; i < 500; i = i+1) begin
+    48              2                       3000     
+    49              1                       3000                   #32
+    50                                               
+    51                                                             // currentbalance = $urandom_range(7'b0, 7'b0000100);
+    52              1                       3000                   language = $urandom_range(2'b00, 2'b10);
+    53              1                       3000                   service = $urandom_range(2'b00, 2'b11);
+    54                                                             if(service == 2'b01) begin
+    55              1                        748                     amount = $urandom_range(5'b00000, 8'b11111111 - currentbalance);
+    56                                                               end // to prevent reset
+    57                                                             else begin
+    58              1                       2252                     amount = $urandom_range(5'b00000, currentbalance);
+    59                                                             end
+    60              1                       3000                   anotherServiceBit = $urandom_range(1'b0, 1'b1);
+    61              1                       3000                   @(negedge clk);
+    62                                               
+    63              1                       3000                   #32
+    64                                               
+    65              1                       3000                   file1= $fopen("Balances.txt","a");
+    66              1                       3000                   $fwrite (file1, cardno, "$", correctPin, "$", currentbalance, "$", language, "$",  service, "$",  amount, "$",  anotherServiceBit, "$", balance, "\n");
+    67                                                             
+    68              1                       3000                   $fclose(file1);
+    69                                               
+    70                                                             
+    71                                                       end
+    72                                                     end
+    73                                               
+    74              1                          1           $fclose(file);
+    75                                                     
+    76              1                          1           #32
+    77              1                          1           pin = 4'b0011;
+    78              1                          1           language = 2'b01;
+    79              1                          1           amount = 5'b00001;
+    80              1                          1           service = 3'b001;
+    81              1                          1           anotherServiceBit = 1'b0;
+    82                                               
+    83                                                     
+    84                                               
+    85                                               
+    86                                                     // #5 
+    87                                               
+    88                                                     // cardno = 8'b11011011;
+    89                                                     // pin = 4'b1101;
+    90                                                     // correctPin = 4'b1101;
+    91                                                     // currentbalance = 5'b00111;
+    92                                                     // language = 2'b01;
+    93                                                     // amount = 5'b00001;
+    94                                                     // service = 3'b001;
+    95                                                     // anotherServiceBit = 1'b0;
+    96                                                   
+    97              1                          1           #100 $stop();
+    97              2                          1     
+    98                                                   end
+    99                                               
+    100                                              ATMmodule ATM_ver(.language(language), .service(service), .amount(amount), .cardno(cardno), .pin(pin), .anotherServiceBit(anotherServiceBit), .clk(clk), .correctPin(correctPin), .balance(balance), .currentbalance(currentbalance), .amIhere(amIhere), .longTime(longTime));
+    101                                              
+    102                                              // always @(balance) begin
+    103                                              //   $display("%t: pin = %b, correctPin = %b, cardno =%b,language =%b,service =%b, amount =%b, anotherServiceBit =%b,currentbalance = %b, balance =%b, longTime =%b",$time, pin, correctPin, cardno, language, service, amount, anotherServiceBit,currentbalance, balance, longTime);
+    104                                              // end
+    105                                                
+    106                                              
+    107                                              endmodule
+
+Toggle Coverage:
+    Enabled Coverage              Bins      Hits    Misses  Coverage
+    ----------------              ----      ----    ------  --------
+    Toggles                         90        90         0   100.00%
+
+================================Toggle Details================================
+
+Toggle Coverage for File ATMmoduleTB.v --
+
+       Line                                   Node      1H->0L      0L->1H  "Coverage"
+--------------------------------------------------------------------------------------
+          2                                    clk           1           1      100.00 
+          3                                 pin[3]           1           1      100.00 
+          3                                 pin[2]           1           1      100.00 
+          3                                 pin[1]           1           1      100.00 
+          3                                 pin[0]           1           1      100.00 
+          3                          correctPin[3]           1           1      100.00 
+          3                          correctPin[2]           1           1      100.00 
+          3                          correctPin[1]           1           1      100.00 
+          3                          correctPin[0]           1           1      100.00 
+          4                              cardno[7]           1           1      100.00 
+          4                              cardno[6]           1           1      100.00 
+          4                              cardno[5]           1           1      100.00 
+          4                              cardno[4]           1           1      100.00 
+          4                              cardno[3]           1           1      100.00 
+          4                              cardno[2]           1           1      100.00 
+          4                              cardno[1]           1           1      100.00 
+          4                              cardno[0]           1           1      100.00 
+          5                            language[1]           1           1      100.00 
+          5                            language[0]           1           1      100.00 
+          6                             service[1]           1           1      100.00 
+          6                             service[0]           1           1      100.00 
+          7                              amount[4]           1           1      100.00 
+          7                              amount[3]           1           1      100.00 
+          7                              amount[2]           1           1      100.00 
+          7                              amount[1]           1           1      100.00 
+          7                              amount[0]           1           1      100.00 
+          8                      anotherServiceBit           1           1      100.00 
+          9                      currentbalance[7]           1           1      100.00 
+          9                      currentbalance[6]           1           1      100.00 
+          9                      currentbalance[5]           1           1      100.00 
+          9                      currentbalance[4]           1           1      100.00 
+          9                      currentbalance[3]           1           1      100.00 
+          9                      currentbalance[2]           1           1      100.00 
+          9                      currentbalance[1]           1           1      100.00 
+          9                      currentbalance[0]           1           1      100.00 
+         10                                amIhere           1           1      100.00 
+         11                             balance[7]           1           1      100.00 
+         11                             balance[6]           1           1      100.00 
+         11                             balance[5]           1           1      100.00 
+         11                             balance[4]           1           1      100.00 
+         11                             balance[3]           1           1      100.00 
+         11                             balance[2]           1           1      100.00 
+         11                             balance[1]           1           1      100.00 
+         11                             balance[0]           1           1      100.00 
+         12                               longTime           1           1      100.00 
+
+Total Node Count     =         45 
+Toggled Node Count   =         45 
+Untoggled Node Count =          0 
+
+Toggle Coverage      =     100.00% (90 of 90 bins)
+
+
+Total Coverage By File (code coverage only, filtered view): 100.00%
+
