@@ -25,7 +25,6 @@ module ATMmodule(
 
     // State and nextState registers
     reg [3:0] state, nextState;
-
     reg [1:0] language_reg;
     reg [2:0] service_reg;
     reg [4:0] amount_reg;
